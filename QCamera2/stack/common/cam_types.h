@@ -1414,15 +1414,6 @@ typedef struct {
     uint8_t batch_size;
 } cam_stream_size_info_t;
 
-
-typedef enum {
-    CAM_INTF_OVERWRITE_MINI_CHROMATIX_OFFLINE,
-    CAM_INTF_OVERWRITE_ISP_HW_DATA_OFFLINE,
-    CAM_INTF_OVERWRITE_MINI_CHROMATIX_ONLINE,
-    CAM_INTF_OVERWRITE_ISP_HW_DATA_ONLINE,
-    CAM_INTF_OVERWRITE_MAX,
-} cam_intf_overwrite_type_t;
-
 typedef struct {
   uint8_t lds_enabled;
   float rnr_sampling_factor;
@@ -1436,12 +1427,6 @@ typedef struct {
   /* reserved for future use */
   uint8_t  reserved[32];
 } cam_dyn_img_data_t;
-
-typedef struct {
-  cam_intf_overwrite_type_t overwrite_type;
-  char isp_hw_data_list[4096];     /*add upper bound memory, customer to fill*/
-  char chromatix_data_overwrite[4096]; /*add bound memory, customer fill*/
-} cam_hw_data_overwrite_t;
 
 typedef struct {
     uint32_t num_streams;
@@ -1872,8 +1857,6 @@ typedef enum {
     CAM_INTF_PARM_MANUAL_FOCUS_POS,
     /* Manual White balance gains */
     CAM_INTF_PARM_WB_MANUAL,
-    /* Offline Data Overwrite */
-    CAM_INTF_PARM_HW_DATA_OVERWRITE,
     /* IMG LIB reprocess debug section */
     CAM_INTF_META_IMGLIB, /* cam_intf_meta_imglib_t */ /* 180 */
     /* OEM specific parameters */
